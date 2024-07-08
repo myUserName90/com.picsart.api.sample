@@ -15,8 +15,8 @@ import static org.testng.AssertJUnit.assertTrue;
 
 public class TestSample {
 
-    @Test(description = "")
-    public void test() {
+    @Test(description = "Test scenario based on task")
+    public void verificationOfPostCreationByUser() {
         int randomInt = new Faker().number().numberBetween(0, 10);
 
         Response userResponse = new UsersService()
