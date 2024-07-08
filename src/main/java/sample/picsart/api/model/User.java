@@ -7,19 +7,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.With;
 
+import java.util.LinkedHashMap;
+
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @With
 public class User {
-    Long id;
+    Integer id;
     String name;
     String username;
     String email;
-    Address address;
+    LinkedHashMap<String, Object> address;
     String phone;
     String website;
-    Company company;
+    LinkedHashMap<String, Object> company;
 
 }

@@ -11,7 +11,9 @@ import lombok.With;
 @AllArgsConstructor
 @NoArgsConstructor
 @With
-public class Geo {
-    Double lat;
-    Double lng;
+public class Post {
+    Integer userId;
+    Integer id;
+    String title;
+    String body;
 }

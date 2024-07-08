@@ -11,10 +11,13 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <rest.assured.version>5.4.0</rest.assured.version>
         <lombok.version>1.18.26</lombok.version>
         <testng.version>7.10.2</testng.version>
+        <jackson.version>2.17.1</jackson.version>
+        <faker.version>1.0.2</faker.version>
     </properties>
     <dependencies>
         <dependency>
@@ -32,6 +35,16 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>${faker.version}</version>
         </dependency>
     </dependencies>
 </project>
