@@ -10,11 +10,12 @@ import sample.picsart.api.services.UsersService;
 
 import java.util.List;
 
+import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class TestSample {
 
-    @Test
+    @Test(description = "")
     public void test() {
         int randomInt = new Faker().number().numberBetween(0, 10);
 
@@ -24,12 +25,27 @@ public class TestSample {
         String email = user.getEmail();
 
         System.out.println(email);
-        Integer id = user.getId();
+        Integer userId = user.getId();
 
         List<Post> posts = new PostService()
                 .getAllPosts().jsonPath().getList("", Post.class);
 
-        assertValidPostIds(posts, id);
+        assertValidPostIds(posts, userId);
+
+        Post post = new Post()
+                .withUserId(userId)
+                .withBody("Test body")
+                .withTitle("Test tittle");
+
+        Post response = new PostService()
+                .createPost(post)
+                .then()
+                .statusCode(201)
+                .extract().body().as(Post.class);
+
+        assertEquals(response.getUserId(),post.getUserId());
+        assertEquals(response.getBody(),post.getBody());
+        assertEquals(response.getTitle(),post.getTitle());
 
 
     }
